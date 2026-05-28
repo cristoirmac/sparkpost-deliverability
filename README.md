@@ -22,26 +22,37 @@ If you skip the interview, the skill asks the same questions ad-hoc as they come
 
 ## Install
 
-### As a single-skill plugin (simplest)
-
-```bash
-mkdir -p ~/.claude/skills/sparkpost-deliverability
-curl -L https://raw.githubusercontent.com/cristoirmac/sparkpost-deliverability/main/SKILL.md \
-  -o ~/.claude/skills/sparkpost-deliverability/SKILL.md
-```
-
-Then restart Claude Code. Invoke with `/sparkpost-deliverability <domain | pool-name | "account">` or just ask in natural language ("is acme.org's deliverability OK?", "how is our SparkPost sending overall?", "why is X on the shared pool?").
-
-### As a Claude Code plugin marketplace
-
-If you want to install via the plugin system (and pull updates more cleanly):
+The repo is a Claude Code plugin marketplace — install via the standard `claude plugins` flow:
 
 ```bash
 claude plugins marketplace add github:cristoirmac/sparkpost-deliverability
-claude plugins install sparkpost-deliverability
+claude plugins install sparkpost-deliverability@cristoirmac-sparkpost-deliverability
+claude plugins list   # verify
 ```
 
-Then `claude plugins update sparkpost-deliverability` to pull future revisions.
+Restart Claude Code to load the skill. Pull future revisions with `claude plugins update sparkpost-deliverability`.
+
+### Invoke
+
+Either use the slash command:
+
+```
+/sparkpost-deliverability <domain | pool-name | "account">
+```
+
+…or ask in natural language: "is acme.org's deliverability OK?", "how is our SparkPost sending overall?", "why is X on the shared pool?". The skill auto-triggers from those phrasings.
+
+### Quick install without the plugin system
+
+Copy `SKILL.md` directly into your user-level skills directory:
+
+```bash
+mkdir -p ~/.claude/skills/sparkpost-deliverability
+curl -L https://raw.githubusercontent.com/cristoirmac/sparkpost-deliverability/main/skills/sparkpost-deliverability/SKILL.md \
+  -o ~/.claude/skills/sparkpost-deliverability/SKILL.md
+```
+
+Restart Claude Code. Same invocation patterns as above.
 
 ## Requirements
 

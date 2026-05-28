@@ -1,0 +1,17 @@
+{
+  "name": "cristoirmac-sparkpost-deliverability",
+  "metadata": {
+    "description": "Claude Code skill for investigating email deliverability on a SaaS platform that sends through SparkPost on behalf of customers."
+  },
+  "owner": {
+    "name": "Chris McFadden",
+    "url": "https://github.com/cristoirmac"
+  },
+  "plugins": [
+    {
+      "name": "sparkpost-deliverability",
+      "source": "./",
+      "description": "Pulls live SparkPost metrics, runs DNS authentication checks (SPF/DKIM/DMARC), correlates with application logs, and produces evidence-graded deliverability briefs. Includes a first-run customization interview that adapts the skill to the operator's platform name, logging tool, docs publishing system, and tier-routing model."
+    }
+  ]
+}

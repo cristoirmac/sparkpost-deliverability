@@ -1,0 +1,31 @@
+{
+  "name": "sparkpost-deliverability",
+  "description": "Claude Code skill for investigating email deliverability on a SaaS platform that sends through SparkPost on behalf of customers. Pulls live SparkPost metrics via the deliverability API, runs DNS authentication checks (SPF, DKIM, DMARC, ESP commingling at apex, bounce subdomain), correlates with application logs (Datadog default; adapts to Splunk / CloudWatch / GCP Logging / Honeycomb on first run), and produces an advisor-style brief with every conclusion graded [FACT] or [HYPOTHESIS] and recovery times stated as ranges. Three investigation modes: account-wide health, single sending domain, single SparkPost IP pool. Supports multi-window trajectory (7d / 30d / 90d), recipient-domain bounce drilldown, reputation probes against major blocklists (Spamhaus / SURBL / URIBL / SpamCop / Barracuda / SORBS), and cohort comparison when a customer-specific signal looks anomalous. On first run, offers a customization interview that rewrites SKILL.md in place to swap generic placeholders for the operator's platform name, docs publishing system (Confluence / Google Docs / Notion / GitHub wiki), bounce-subdomain convention, tier-routing model, and SparkPost CSM escalation contact.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Chris McFadden",
+    "url": "https://github.com/cristoirmac"
+  },
+  "repository": "https://github.com/cristoirmac/sparkpost-deliverability",
+  "license": "MIT",
+  "keywords": [
+    "sparkpost",
+    "deliverability",
+    "email-deliverability",
+    "saas",
+    "dkim",
+    "spf",
+    "dmarc",
+    "dns-authentication",
+    "bounce-classification",
+    "ip-pool",
+    "reputation-probes",
+    "spamhaus",
+    "blocklist",
+    "customer-success",
+    "support-tooling",
+    "investigation",
+    "evidence-graded",
+    "fact-vs-hypothesis"
+  ]
+}
