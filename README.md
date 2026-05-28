@@ -72,14 +72,9 @@ Restart Claude Code. Same invocation patterns as above.
 
 This skill was built and refined inside a SaaS platform sending several million emails per week through SparkPost on behalf of customers. The published version is the sanitized core — product names, customer names, and internal docs page IDs stripped; the first-run customization re-introduces those as the operator's own configuration.
 
-It draws on long context with SparkPost's deliverability surface:
+Author: Chris McFadden ([@cristoirmac](https://github.com/cristoirmac)). Currently CTO at Quorum, where the team operates this skill against production SparkPost traffic. Previously VP of Engineering at Message Systems / SparkPost (2014–2021) and Director of Engineering (2012–2014). One of the original authors of the SparkPost metrics and events API endpoints (`/api/v1/metrics/deliverability/*`, `/api/v1/events/message`) that this skill uses. Also operated deliverability at SparkPost through the MessageBird acquisition (2021).
 
-- **Chris McFadden** ([@cristoirmac](https://github.com/cristoirmac)) — current CTO at Quorum, where the team operates this skill against production SparkPost traffic daily.
-- Previously **VP of Engineering at Message Systems / SparkPost (2014–2021)**, leading the transition from on-prem enterprise email infrastructure to a cloud-native SaaS platform that processed >1 billion messages/day at peak. Before that, **Director of Engineering (2012–2014)**, launching **Momentum Analytics** — the real-time email analytics layer that became the foundation for SparkPost's later SaaS analytics and deliverability intelligence.
-- One of the **original authors of the SparkPost metrics and events API endpoints** that this skill uses for every query — `/api/v1/metrics/deliverability/*`, `/api/v1/events/message`, and the per-mailbox-provider / per-domain breakdowns. The skill's defensive notes about which filters work, where empty results lurk, and which paths return 404 come from years of seeing these endpoints from both sides.
-- Also operated deliverability at SparkPost through the **MessageBird acquisition ($600M, 2021)**, including SendGrid-comparable scale and the cross-ESP migration patterns this skill watches for (apex commingling, prior-ESP DKIM residue).
-
-The opinions baked into the skill — "use `/metrics/deliverability`, never `/aggregate`"; "`sending_domains=` not `domains=`"; "don't guess DKIM selectors, hit `/sending-domains/<domain>` first"; "same-day block counts mislead, use the 30-day rolling rate"; "don't treat Hotmail complaint volume as ground truth" — are not internet wisdom. They're what holds up across years of running SparkPost in production at SaaS-scale, on both sides of the API.
+The defensive notes in the skill — `/metrics/deliverability` vs the nonexistent `/aggregate`, `sending_domains=` vs `domains=`, looking up the DKIM selector via the API before digging DNS, the 30-day rolling rate vs same-day block counts — come from running SparkPost in production over that period.
 
 ## License
 
