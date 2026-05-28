@@ -76,6 +76,10 @@ Author: Chris McFadden ([@cristoirmac](https://github.com/cristoirmac)). Current
 
 The defensive notes in the skill — `/metrics/deliverability` vs the nonexistent `/aggregate`, `sending_domains=` vs `domains=`, looking up the DKIM selector via the API before digging DNS, the 30-day rolling rate vs same-day block counts — come from running SparkPost in production over that period.
 
+## Contributing
+
+PRs welcome — corrections, new durable diagnostic patterns, adapter notes for non-Datadog logging tools or non-Confluence docs systems, and sanitization fixes are the highest-value contributions. See [CONTRIBUTING.md](./CONTRIBUTING.md) for scope and mechanics.
+
 ## License
 
-MIT.
+[MIT](./LICENSE).
